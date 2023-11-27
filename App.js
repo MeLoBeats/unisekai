@@ -1,31 +1,10 @@
-import { NavigationContainer, Link } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Camera, CameraType } from 'expo-camera';
-import { useEffect, useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Button, StyleSheet } from 'react-native'; 
 import CameraScreen from './screens/Camera';
+import HomeScreen from './screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
-
-function HomeScreen({ navigation }) {
-  const [title, setTitle] = useState('Home')
-
-  useEffect(() => {
-    navigation.setOptions({ title })
-  }, [title])
-
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Go to Camera"
-        onPress={() => navigation.navigate('Camera')}
-      />
-      <TextInput style={styles.textInput} onChangeText={setTitle}></TextInput>
-    </View>
-  );
-}
-
 export default function App() {
 
   return (
